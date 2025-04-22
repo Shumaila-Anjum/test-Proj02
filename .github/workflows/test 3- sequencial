@@ -22,7 +22,7 @@ jobs:
         run: npm test  # Runs your test scripts
 
   deploy:   # second job
-    needs: test-job  #this is frst job when this job done then second job start
+    needs: test-job #this is frst job when this job done then second job start
     runs-on: ubuntu-latest
     steps:
       - name: Get code
