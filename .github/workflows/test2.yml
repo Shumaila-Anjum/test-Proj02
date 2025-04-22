@@ -1,26 +1,27 @@
-name: Test Project
+name: Test Project  # workdlow name
 
-on: push
+on: push # workflow runs everytime when u PUSH the code to the GITHUB repo
 
 jobs:
-  test-job:
-    runs-on: ubuntu-latest
+  test-job:  #jobs will run on PUSH
+    runs-on: ubuntu-latest   # Run the job on GitHub’s Ubuntu (Linux) virtual machine
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v3 # Downloads your GitHub project code into that GitHub virtual machine, so it can run tests on it
 
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v3 # Installs Node.js version 20 into Github virtual machine
         with:
           node-version: '20'   # use latest Node
 
       - name: Install dependencies
-        run: npm ci
+        run: npm ci  # This command installs all the npm packages 
 
       - name: Run tests
-        run: npm test
-  deploy:
+        run: npm test  # Runs your test scripts
+
+  deploy:   # second job
     runs-on: ubuntu-latest
     steps:
       - name: Get code
@@ -35,3 +36,5 @@ jobs:
         run: npm run build
       - name: Deploy
         run: echo "Deploying ...."
+
+        # Both jobs runs in parallel
