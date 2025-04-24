@@ -1,6 +1,6 @@
 name: Test Project  # workdlow name
 
-on: push # workflow runs everytime when u PUSH the code to the GITHUB repo
+on: [push, workflow_manual] # workflow runs everytime when u PUSH the code to the GITHUB repo
 
 jobs:
   test-job:  #jobs will run on PUSH
